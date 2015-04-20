@@ -1,0 +1,54 @@
+<!--
+  # note
+
+  小提示块，多用在表单验证提示等地方
+
+  ## Attribtues
+
+  * `[status="success"]`: 成功提示
+  * `[status="warning"]`: 警告提示
+  * `[status="danger"]`: 错误提示
+
+  ## Example
+
+  ```
+  <z-note>正常提示</z-note>
+  <z-note status="success">成功提示</z-note>
+  <z-note status="warning">警告提示</z-note>
+  <z-note status="danger">错误提示</z-note>
+  ```
+-->
+
+<link rel="import" href="//g.alicdn.com/mtb/lib-3rd/polymer/polymer.html">
+
+<polymer-element name="z-note" attributes="status">
+  <template>
+    <style>
+      :host {display: block; padding: 8px 10px; margin-bottom: 20px; border: 1px solid transparent; border-radius: 2px; font-size: 12px;}
+      :host {background-color: #d9edf7; border-color: #d9edf7; color: #3a87ad;}
+      :host([status="success"]) {background-color: #dbffdb; border-color: #dbffdb; color: #1f991f;}
+      :host([status="warning"]) {background-color: #ffeddb; border-color: #ffeddb; color: #e57300;}
+      :host([status="danger"]) {background-color: #ffdbdb; border-color: #ffdbdb; color: #ff3333;}
+
+      ::content a {font-weight: bold; color: #2d6987;}
+      :host([status="success"]) ::content a {color: #166f16;}
+      :host([status="warning"]) ::content a {color: #b25900;}
+      :host([status="danger"]) ::content a {color: #ff0000;}
+      </style>
+      <content></content>
+  </template>
+  <script>
+    Polymer('z-note', {
+      ready: function () {
+        // fixed init-rendering bug
+        var status = this.status;
+        if (status) {
+          this.removeAttribute('status');
+          setTimeout(function () {
+            this.setAttribute('status', status);
+          }.bind(this));
+        }
+      }
+    });
+  </script>
+</polymer-element>
