@@ -1,25 +1,29 @@
 <!--
-  # note
 
-  小提示块，多用在表单验证提示等地方
+@element z-note
 
-  ## Attribtues
+# `<z-note>`
 
-  * `[status="success"]`: 成功提示
-  * `[status="warning"]`: 警告提示
-  * `[status="danger"]`: 错误提示
+Note element which could be used in places like form validation result
 
-  ## Example
+## Attribtues
 
-  ```
-  <z-note>正常提示</z-note>
-  <z-note status="success">成功提示</z-note>
-  <z-note status="warning">警告提示</z-note>
-  <z-note status="danger">错误提示</z-note>
-  ```
+- `status`: `"success"` | `"warning"` | `"danger"`
+
 -->
 
-<link rel="import" href="//g.alicdn.com/mtb/lib-3rd/polymer/polymer.html">
+<!--
+
+@example default
+
+<z-note>normal notes</z-note>
+<z-note status="success">success notes</z-note>
+<z-note status="warning">warning notes</z-note>
+<z-note status="danger">danger notes</z-note>
+
+-->
+
+<link rel="import" href="../polymer/polymer.html">
 
 <polymer-element name="z-note" attributes="status">
   <template>
